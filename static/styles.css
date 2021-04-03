@@ -1,0 +1,69 @@
+* {
+	line-height: 2;
+	font-family: 'EB Garamond', serif;
+}
+
+.cupcakes-container {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+form {
+	display: inline-flex;
+	width: 25%;
+	flex-direction: column;
+	align-items: center;
+}
+
+label + input {
+	margin-bottom: 10px;
+}
+
+form * {
+	font-size: 125%;
+}
+
+label:first-of-type {
+	margin-top: 0px;
+}
+
+input {
+	width: 60%;
+}
+
+input[type='number'] {
+	width: 36%;
+}
+
+h1 {
+	letter-spacing: 0.18em;
+}
+
+h3 {
+	margin-bottom: 1px;
+}
+
+#add-cupcake-button {
+	width: 30%;
+	margin-top: 15px;
+	border-radius: 20px;
+	outline: none;
+	background: rgb(100, 0, 0);
+	border: none;
+	color: white;
+	font-weight: 600;
+}
+
+#add-cupcake-button:hover {
+	cursor: pointer;
+	background: #880606;
+}
+
+input:not([type='number'])::placeholder {
+	text-indent: 2%;
+}
+
+input:not([type='number']):focus {
+	text-indent: 2%;
+}

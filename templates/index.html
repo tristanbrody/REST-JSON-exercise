@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<div class="cupcakes-container">
+    <ul class="cupcakes-ul"></ul>
+</div>
+
+<form action="" class="add-cupcake-form">
+    <h3>Add a Cupcake</h3>
+    <label for="cupcake_flavor">Flavor</label>
+    <input type="text" id="cupcake_flavor" name="cupcake_flavor" placeholder='chocolate' required>
+
+    <label for="cupcake_image">Image</label>
+    <input type="text" id="cupcake_image" name="cupcake_image" placeholder='https://imgur.com/some_image' image>
+
+    <label for="cupcake_size">Size</label>
+    <input type="text" id="cupcake_size" name="cupcake_size" placeholder='extra-large' required>
+
+    <label for="cupcake_rating">Rating</label>
+    <input type="number" id="cupcake_rating" name="cupcake_rating" min=1 max=10 placeholder='Enter between 1-10'
+        required>
+
+    <button id="add-cupcake-button" type="submit">Add Cupcake</button>
+
+</form>
+{% endblock %}
