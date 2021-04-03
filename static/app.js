@@ -12,8 +12,8 @@ submitCupcakeForm.addEventListener('submit', async function (e) {
 	e.preventDefault();
 	const data = new FormData(e.target);
 	const formData = Object.fromEntries(data.entries());
+	// const res = fetch('/api/cupcakes', { method: 'POST', body: JSON.stringify(formData) });
 	const res = await axios.post('/api/cupcakes', JSON.stringify(formData));
-	console.dir(res);
 	// window.location.href = '';
 });
 
