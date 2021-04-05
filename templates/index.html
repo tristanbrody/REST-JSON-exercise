@@ -7,20 +7,34 @@
     <ul class="cupcakes-ul"></ul>
 </div>
 
+<form action="/search" class="search-cupcake-form">
+    <h3>Search for a cupcake</h3>
+    <input type="text" id="cupcake-search" name='search' placeholder="search by flavor">
+    <button>Search</button>
+</form>
+
+{% if search_results %}
+<div class="cupcake-search-results-container">
+    <ul class="cupcake-search-results-ul">
+        {% for cupcake in search_results %}
+        <li>{{cupcake.flavor}}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
 <form action="" class="add-cupcake-form">
     <h3>Add a Cupcake</h3>
     <label for="cupcake_flavor">Flavor</label>
-    <input type="text" id="cupcake_flavor" name="cupcake_flavor" placeholder='chocolate' required>
+    <input type="text" id="cupcake_flavor" name="flavor" placeholder='chocolate' required>
 
     <label for="cupcake_image">Image</label>
-    <input type="text" id="cupcake_image" name="cupcake_image" placeholder='https://imgur.com/some_image' image>
+    <input type="text" id="cupcake_image" name="image" placeholder='https://imgur.com/some_image' image>
 
     <label for="cupcake_size">Size</label>
-    <input type="text" id="cupcake_size" name="cupcake_size" placeholder='extra-large' required>
+    <input type="text" id="cupcake_size" name="size" placeholder='extra-large' required>
 
     <label for="cupcake_rating">Rating</label>
-    <input type="number" id="cupcake_rating" name="cupcake_rating" min=1 max=10 placeholder='Enter between 1-10'
-        required>
+    <input type="number" id="cupcake_rating" name="rating" min=1 max=10 placeholder='Enter between 1-10' required>
 
     <button id="add-cupcake-button" type="submit">Add Cupcake</button>
 

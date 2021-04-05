@@ -17,6 +17,13 @@ connect_db(app)
 def home_page():
     return render_template('index.html')
 
+@app.route('/search')
+def search():
+    search = request.args['search']
+    search_formatted = '%{}%'.format(search)
+    search_results = Cupcake.query.filter(Cupcake.flavor.like(search_formatted)).all()
+    return render_template('index.html', search_results=search_results)
+
 #BE code for API
 
 @app.route('/api/cupcakes')
@@ -47,7 +54,7 @@ def create_cupcake():
 
 @app.route('/api/cupcakes/<cupcake_id>', methods=["PATCH"])
 def update_all_cupcake_fields(cupcake_id):
-    cupcake = Cupcake.query.get(cupcake_id)
+    cupcake = Cupcake.query.get_or_404(cupcake_id)
     cupcake.flavor = request.json["flavor"]
     cupcake.image = request.json.get("image")
     cupcake.size = request.json["size"]

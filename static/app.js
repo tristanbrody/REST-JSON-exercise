@@ -12,9 +12,12 @@ submitCupcakeForm.addEventListener('submit', async function (e) {
 	e.preventDefault();
 	const data = new FormData(e.target);
 	const formData = Object.fromEntries(data.entries());
-	// const res = fetch('/api/cupcakes', { method: 'POST', body: JSON.stringify(formData) });
-	const res = await axios.post('/api/cupcakes', JSON.stringify(formData));
-	// window.location.href = '';
+	const res = fetch('/api/cupcakes', {
+		method: 'POST',
+		body: JSON.stringify(formData),
+		headers: { 'Content-Type': 'application/json' }
+	});
+	window.location.href = '';
 });
 
 async function getCupcakes() {
